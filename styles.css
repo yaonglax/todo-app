@@ -1,0 +1,791 @@
+
+:root {
+
+    --light-blue: #bcdcea;
+    --blue: #4299bf;
+    --li-color: #99c7d7;
+    --dawn: #f6bf9f;
+    --dark-blue: #0d0934;
+}
+
+*::after,
+*::before,
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    font-size: 20px;
+   background-color: var(--blue);
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+  width: 0 !important;
+}
+body.light-theme {
+  background-color: var(--blue);
+}
+body.dawn-theme {
+  background-color: var(--dawn);
+}
+body.dark-theme {
+  background-color:var(--dark-blue);
+}
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--light-blue);
+    padding-top: 2em;
+}
+.mali-regular {
+    font-family: "Mali", cursive;
+    font-weight: 900;
+    font-style:normal;
+  }
+  .gaegu-regular {
+    font-family: "Gaegu", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  .rubik-bubbles-regular {
+    font-family: "Rubik Bubbles", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  #list {
+    margin: 0 auto;
+    width: 40vw;
+    height:auto;
+    background-color: var(--blue);
+    border-radius: 8px; 
+    padding: 20px 20px 5px 10px;
+    display: block;
+
+  }
+  .todo {
+    background-color: var(--li-color);
+    width: 100%;
+    height: 10vh;
+    margin-bottom: 5px;
+    color: var(--blue);
+    font-size: 1.9em;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+  }
+  .buttons {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+  }
+  #create {
+    width: 24px;
+    height: 24px;
+    background-image: url("./image/plus.png");
+    cursor: pointer;
+    border: none;
+    background-size: cover;
+    background-color: transparent;
+  }
+  #edit-btn {
+    width: 32px;
+    height: 32px;
+    background-image: url("./image/edit.png");
+    cursor: pointer;
+    
+  }
+  #edit-btn,
+  #delete-btn,
+  #check-btn {
+      width: 32px;
+      height: 32px;
+      background-size: cover;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+  }
+  
+  #edit-btn {
+      background-image: url("./image/edit.png");
+  }
+  
+  #delete-btn {
+      background-image: url("./image/cross.png");
+  }
+  #check-btn {
+    background-image: url("./image/check.png");
+  }
+  .for-create {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: none;
+  }
+  .empty {
+    text-align: center;
+    color: var(--light-blue);
+    font-size: 1.8em;
+  }
+  .input-todo {
+    background-color: transparent;
+    border: var(--blue) 3px solid;
+    border-radius: 4px;
+    height: 30px;
+    width: 300px;
+    font-size: 0.8em;
+    color: var(--blue);
+
+  }
+  .input-todo:focus {
+    outline: none;
+  }
+
+  ::placeholder {
+    color: var(--blue);
+    font-size: 0.8em;
+    font-family: "Rubik Bubbles", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .cover, .main {
+    height: 100svh;
+    min-width: 100vw;
+  }
+  .cover {
+    display: flex;
+    flex-direction: column;
+    background-image: url('./image/cover-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+
+  .main {
+    background-image: url("./image/bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .star {
+    background-image: url("./image/littlest.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    animation-name: starsanim;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .star:nth-child(2),  .star:nth-child(5),  .star:nth-child(8) {
+    background-image: url("./image/bigst.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+  }
+    #star-1 {
+      top: 20px;
+      left: 20px;
+    }
+    #star-2 {
+      top: 100px;
+      left: 180px;
+      animation-delay: 2s;
+      
+    }
+    #star-3 {
+      top: 300px;
+      left: 90px;
+      animation-direction: reverse;
+      animation-delay: 4s;
+    }
+    #star-4 {
+      top: 200px;
+      right: 20px;
+      animation-delay: 3s;
+    }
+    #star-5 {
+      top: 20px;
+      right: 100px;
+      animation-delay: 2s;
+      animation-direction: reverse;
+    }
+    .stars {
+      position: relative;
+      width: 100%;
+      height: 100px;
+    }
+  .title {
+    position: absolute;
+    width: 60em;
+    height: 250px;
+    top: 7em;
+    left: 7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    animation: titleAnim 2s ease-in-out;
+  }
+  @keyframes starsanim {
+   0% {
+    transform: translateY(0em);
+    
+   }
+   25% {
+    transform: translateY(1em);
+    transform: rotate(45deg);
+   }
+   50% {
+    transform: translateY(0em);
+   
+   }
+   75% {
+    transform: translateY(-1em);
+    
+   }
+   100% {
+    transform: translateY(0em);
+    transform: rotate(0deg);
+   }
+  }
+  .letter {
+    height: 200px;
+    width: 200px;
+    flex-wrap: wrap;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .first, .second {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #let1 {
+    background-image: url("./image/Lletter.png");
+    transform: rotate(-7deg);
+  }
+  #let2 {
+    background-image: url("./image/Eletter.png");
+    transform: rotate(5deg);
+  }
+  #let3, #let8 {
+    background-image: url("./image/Tletter.png");
+    transform: rotate(0deg);
+  }
+  #let4 {
+    background-image: url("./image/Sletter.png");
+    transform: rotate(-9deg);
+ 
+  }
+  #let5 {
+    background-image: url("./image/Dletter.png");
+    transform: rotate(7deg);
+  }
+  #let6 {
+    background-image: url("./image/Oletter.png");
+    transform: rotate(-10deg);
+  }
+  #let7 {
+    background-image: url("./image/Iletter.png");
+    transform: rotate(-10deg);
+  }
+  #space {
+    min-width: 300px;
+  }
+  @keyframes titleAnim {
+    from {
+     transform: scale(0.3);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+.button-down {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 256px;
+  height: 256px;
+  position: absolute;
+  bottom: -3em;
+  left: 43%;
+}
+.arrow {
+  width: 80px;
+  height:80px;
+  background-image: url("./image/arrow.png");
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.toggles {
+  position: absolute;
+ bottom: 0;
+ left: 1em;
+} 
+.toggle-1, .toggle-2, .toggle-3 {
+  width: 35px;
+  height: 35px;
+  padding: 3px;
+  background-clip: content-box;
+  border-radius: 50%;
+}
+.toggle-1 {
+  background-color: rgb(120, 201, 219);
+  border: 3px solid rgb(120, 201, 219);
+}
+.toggle-2 {
+  background-color: rgb(211, 167, 201);
+  border: 3px solid rgb(211, 167, 201);
+}
+.toggle-3 {
+  background-color: rgb(7, 2, 43);
+  border: 3px solid rgb(7, 2, 43);
+}
+.toggle-1:focus, .toggle-2:focus, .toggle-3:focus {
+transform: scale(1.1);
+background-clip:unset;
+}
+
+@media (max-width: 1400px) {
+  body {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  h1 {
+    max-width: 98vw;
+    width: 100%;
+  }
+  .cover, .main {
+    min-width: 100vw;
+    max-height: 100vh;
+    background-size: cover;
+  }
+  .title {
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    width: 100%;
+    max-height: 100px;
+    left: 5%;
+  }
+  .letter {
+    max-width: 130px;
+    max-height: 180px;
+    background-position: center;
+    background-repeat: no-repeat;
+      
+  }
+  #let1, #let2, #let3, #let4{
+    min-width:20vw;
+    flex:2 0 20vw;
+  }
+  #let5, #let6, #let7, #let8 {
+    min-width: 10vw;
+    flex: 1 2 10vw;
+  }
+  #space {
+    max-width: 1vw;
+  }
+  .star {
+    margin-top: 10vw;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .button-down {
+    left: 0;
+   width: 100vw;
+  }
+  #list {
+  max-width: 80vw;
+  width: 100%;
+  font-size: 1.1em;
+  }
+  .input-todo {
+    max-width: 75%;
+    width: 100%;
+  }
+  #edit-btn, #delete-btn, #create {
+    width: 26px;
+    height: 26px;
+  }
+  .toggle-1, .toggle-2, .toggle-3 {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 990px) {
+  body {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  h1 {
+    max-width: 98vw;
+    width: 100%;
+  }
+  .cover, .main {
+    min-width: 100vw;
+    max-height: 100vh;
+    background-size: cover;
+  }
+  .title {
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    width: 100%;
+    max-height: 100px;
+    left: 5%;
+  }
+  .letter {
+    max-width: 100px;
+    max-height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+      
+  }
+  #let1, #let2, #let3, #let4{
+    min-width:20vw;
+    flex:2 0 20vw;
+  }
+  #let5, #let6, #let7, #let8 {
+    min-width: 10vw;
+    flex: 1 2 10vw;
+  }
+  #space {
+    max-width: 1vw;
+  }
+  .star {
+    margin-top: 10vw;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .button-down {
+    left: 0;
+   width: 100vw;
+  }
+  #list {
+  max-width: 80vw;
+  width: 100%;
+  font-size: 1.1em;
+  }
+  .input-todo {
+    max-width: 75%;
+    width: 100%;
+  }
+  #edit-btn, #delete-btn, #create {
+    width: 26px;
+    height: 26px;
+  }
+  .toggle-1, .toggle-2, .toggle-3 {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 770px) {
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+h1 {
+  max-width: 98vw;
+  width: 100%;
+}
+.cover, .main {
+  min-width: 100vw;
+  max-height: 100vh;
+  background-size: cover;
+}
+.title {
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw;
+  width: 100%;
+  max-height: 100px;
+  left: 5%;
+}
+.letter {
+  max-width: 100px;
+  max-height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+    
+}
+#let1, #let2, #let3, #let4{
+  min-width:20vw;
+  flex:2 0 20vw;
+}
+#let5, #let6, #let7, #let8 {
+  min-width: 10vw;
+  flex: 1 2 10vw;
+}
+#space {
+  max-width: 1vw;
+}
+.star {
+  margin-top: 10vw;
+  max-width: 40px;
+  max-height: 40px;
+}
+.button-down {
+  left: 0;
+ width: 100vw;
+}
+#list {
+max-width: 80vw;
+width: 100%;
+font-size: 0.7em;
+}
+.input-todo {
+  max-width: 75%;
+  width: 100%;
+}
+#edit-btn, #delete-btn, #create {
+  width: 26px;
+  height: 26px;
+}
+.toggle-1, .toggle-2, .toggle-3 {
+  width: 30px;
+  height: 30px;
+}
+}
+@media (max-width: 1400px) and (orientation: landscape) {
+  body {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  h1 {
+    max-width: 98vw;
+    width: 100%;
+  }
+  .cover, .main {
+    min-width: 100vw;
+    max-height: 100svh;
+    background-size: cover;
+  }
+  .title {
+    justify-content: center;
+    align-items: center;
+    max-width: 50vw;
+    width: 100%;
+    left: 5%;
+    top: 0;
+  }
+  .letter {
+    max-width: 150px;
+    max-height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #let1, #let2, #let3, #let4{
+    min-width:10vw;
+    flex:2 0 20vw;
+  }
+  #let5, #let6, #let7, #let8 {
+    min-width: 5vw;
+    flex: 1 2 10vw;
+  }
+  #space {
+    max-width: 1vw;
+  }
+  .star {
+    margin-top: 10vw;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .button-down {
+    left: 0;
+   width: 100vw;
+   bottom: -5em;
+  }
+  .arrow {
+    width: 30px;
+    height: 30px;
+  }
+  #list {
+  max-width: 80vw;
+  width: 100%;
+  font-size: 1.1em;
+  }
+  .input-todo {
+    max-width: 75%;
+    width: 100%;
+  }
+  #edit-btn, #delete-btn, #create {
+    width: 26px;
+    height: 26px;
+  }
+  .toggle-1, .toggle-2, .toggle-3 {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 990px) and (orientation: landscape){
+  body {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  h1 {
+    max-width: 98vw;
+    width: 100%;
+    padding: 0;
+  }
+  .cover, .main {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-size: cover;
+  }
+  .title {
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    width: 100%;
+    max-height: 100px;
+    left: 5%;
+  }
+  .letter {
+    max-width: 100px;
+    max-height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+      
+  }
+  #let1, #let2, #let3, #let4{
+    min-width:20vw;
+    flex:2 0 20vw;
+  }
+  #let5, #let6, #let7, #let8 {
+    min-width: 10vw;
+    flex: 1 2 10vw;
+  }
+  #space {
+    max-width: 1vw;
+  }
+  .star {
+    margin-top: 10vw;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .button-down {
+    left: 0;
+   width: 100vw;
+  }
+  #list {
+  max-width: 60vw;
+  width: 100%;
+  font-size: 1.1em;
+  }
+  .input-todo {
+    max-width: 75%;
+    width: 100%;
+    max-height: 80%;
+    height: 100%;
+  }
+  #edit-btn, #delete-btn, #create {
+    width: 26px;
+    height: 26px;
+  }
+  .toggle-1, .toggle-2, .toggle-3 {
+    width: 30px;
+    height: 30px;
+  }
+  .todo {
+    padding: 10px 2px 10px 10px;
+  }
+}
+@media (max-width: 770px) and (orientation: landscape) {
+  body {
+    max-width: 100vw;
+    max-height: 100svh;
+  }
+  #h1-title {
+    max-width: 98vw;
+    width: 100%;
+    max-height: 15vw;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .cover, .main {
+    min-width: 100vw;
+    max-height: 100svh;
+    background-size: cover;
+  }
+  .title {
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    width: 100%;
+    max-height: 100px;
+    left: 5%;
+    top: 15%;
+  }
+  .letter {
+    max-width: 100px;
+    max-height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+      
+  }
+  #let1, #let2, #let3, #let4{
+    min-width:20vw;
+    flex:2 0 20vw;
+  }
+  #let5, #let6, #let7, #let8 {
+    min-width: 10vw;
+    flex: 1 2 10vw;
+  }
+  #space {
+    max-width: 1vw;
+  }
+  .star {
+    margin-top: 10vw;
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .button-down {
+    left: 0;
+   width: 100vw;
+  }
+  #list {
+  max-width: 80vw;
+  width: 100%;
+  font-size: 0.7em;
+  margin-top: 0;
+  }
+  .input-todo {
+    max-width: 75%;
+    width: 100%;
+  }
+  #edit-btn, #delete-btn, #create {
+    width: 26px;
+    height: 26px;
+  }
+  .toggle-1, .toggle-2, .toggle-3 {
+    width: 30px;
+    height: 30px;
+  }
+.arrow {
+  width: 60px;
+  height: 60px;
+}
+}
